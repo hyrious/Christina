@@ -1,0 +1,6 @@
+[
+    {
+        "caption": "Clang Format",
+        "command": "clang_format",
+    }
+]

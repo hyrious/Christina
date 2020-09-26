@@ -1,0 +1,4 @@
+[
+  { "caption": "Christina: Clang Format",
+    "command": "clang_format" },
+]
