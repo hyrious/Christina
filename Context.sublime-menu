@@ -2,5 +2,9 @@
     {
         "caption": "Clang Format",
         "command": "clang_format",
+    },
+    {
+        "caption": "Close Without Saving",
+        "command": "close_without_saving",
     }
 ]

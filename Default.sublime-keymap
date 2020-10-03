@@ -1,5 +1,6 @@
 [
     { "keys": ["ctrl+\\"], "command": "toggle_side_bar" },
     { "keys": ["alt+m"], "command": "toggle_menu" },
-    { "keys": ["alt+`"], "command": "open_terminal" }
+    { "keys": ["alt+`"], "command": "open_terminal" },
+    { "keys": ["alt+w"], "command": "close_without_saving" },
 ]

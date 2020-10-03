@@ -1,4 +1,6 @@
 [
   { "caption": "Christina: Clang Format",
     "command": "clang_format" },
+  { "caption": "Christina: Close Without Saving",
+    "command": "close_without_saving" },
 ]
