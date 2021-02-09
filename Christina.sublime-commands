@@ -3,4 +3,6 @@
     "command": "clang_format" },
   { "caption": "Christina: Close Without Saving",
     "command": "close_without_saving" },
+  { "caption": "Christina: Insert Date",
+    "command": "insert_date" },
 ]
