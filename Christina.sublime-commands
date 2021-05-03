@@ -5,4 +5,6 @@
     "command": "close_without_saving" },
   { "caption": "Christina: Insert Date",
     "command": "insert_date" },
+  { "caption": "Christina: Wrap With \\left( and \\right)",
+    "command": "wrap_with_parentheses" },
 ]
