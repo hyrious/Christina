@@ -6,5 +6,9 @@
     {
         "caption": "Close Without Saving",
         "command": "close_without_saving",
+    },
+    {
+        "caption": "Set ReadOnly",
+        "command": "set_read_only",
     }
 ]
