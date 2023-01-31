@@ -1,2 +1,0 @@
-note:
-install [ PackageDev ] first
