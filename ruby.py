@@ -1,10 +1,12 @@
-import sublime
-import sublime_plugin
-import subprocess
-import glob
+import sublime, sublime_plugin
+import subprocess, glob
 
 def spawn(args):
-    return subprocess.run(args, capture_output=True, text=True).stdout
+    si = None
+    if sublime.platform() == "windows":
+        si = subprocess.STARTUPINFO()
+        si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+    return subprocess.run(args, startupinfo=si, capture_output=True, text=True).stdout
 
 def json_parse(data):
     return sublime.decode_value(data)
@@ -17,15 +19,16 @@ class AutoCompleteRequire(sublime_plugin.ViewEventListener):
     shorts = None
     longs = None
     def on_activated_async(self):
-        shorts, longs = [], []
-        paths = json_parse(spawn(['ruby', '-e', 'p $:']))
-        for path in paths:
-            for file in glob.glob(path + '/*.rb'):
-                shorts.append(file[len(path)+1:-3])
-            for file in glob.glob(path + '/**/*.rb'):
-                longs.append(file[len(path)+1:-3])
-        self.shorts = sorted(shorts)
-        self.longs = sorted(longs)
+        if not self.shorts and not self.longs:
+            shorts, longs = [], []
+            paths = json_parse(spawn(['ruby', '-e', 'p $:']))
+            for path in paths:
+                for file in glob.glob(path + '/*.rb'):
+                    shorts.append(file[len(path)+1:-3])
+                for file in glob.glob(path + '/**/*.rb'):
+                    longs.append(file[len(path)+1:-3].replace('\\', '/'))
+            self.shorts = sorted(shorts)
+            self.longs = sorted(longs)
 
     def on_query_completions(self, prefix, locations):
         if self.shorts and self._is_ruby_require(locations):
