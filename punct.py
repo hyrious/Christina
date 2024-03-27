@@ -3,7 +3,13 @@ import sublime, sublime_plugin
 have_a_rest = False
 replacements = {
     "，": ", ",
-    "（": " () ",
+    "（": " (",
+    "）": ")",
+    "：": ": ",
+    "；": "; ",
+    "。": ".",
+    "【": " [",
+    "】": "]",
 }
 
 class FixCjkCommaListener(sublime_plugin.TextChangeListener):
