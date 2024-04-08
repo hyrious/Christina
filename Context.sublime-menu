@@ -1,0 +1,5 @@
+[
+  { "caption": "-", "id": "file" },
+  { "command": "copy_github_url", "caption": "Copy GitHub URL" },
+  { "caption": "-", "id": "end" }
+]
